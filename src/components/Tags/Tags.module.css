@@ -1,0 +1,30 @@
+.tag_list {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.tag_item {
+    color: rgb(0, 0, 0);
+    line-height: 1.5;
+    padding: 0 0.5rem;
+    border-radius: 10px;
+}
+
+
+/* UTILITIES */
+.html {
+    background-color: cornflowerblue;
+}
+
+.js {
+    background-color: gold;
+}
+
+.css {
+    background-color: mediumslateblue;
+}
+
+.php {
+    background-color: cornflowerblue;
+}

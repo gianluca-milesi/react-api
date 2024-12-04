@@ -1,0 +1,82 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+}
+
+/* Fields */
+.form_field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    transition: 0.2s;
+}
+
+.form_field:hover {
+    scale: 1.03;
+}
+
+.form_field:active {
+    scale: 1;
+}
+
+.form_published_field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Inputs */
+.input_item {
+    border: none;
+    line-height: 2;
+    padding: 0 0.5rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.input_item_checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.input_item_checkbox:checked {
+    width: 14px;
+    height: 14px;
+}
+
+.input_item_select {
+    border: none;
+    padding: 0.35rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit {
+    border: none;
+    line-height: 2;
+    padding: 0 0.5rem;
+    border-radius: 20px;
+    background-color: rgb(65, 65, 65);
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit:hover {
+    background-color: rgb(218, 165, 33);
+    color: black;
+}
+
+.submit:hover:active {
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+}

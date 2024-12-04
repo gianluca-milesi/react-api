@@ -1,0 +1,18 @@
+/* SECTIONS */
+.tags {
+    display: flex;
+    justify-content: center;
+}
+
+.tags,
+.cards {
+    margin-bottom: 2.5rem;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
