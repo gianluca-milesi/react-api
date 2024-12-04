@@ -106,7 +106,13 @@ function Main() {
     //CARD
     //deleteItem
     function deletePost(id) {
-        setPosts(posts.filter(post => post.id !== id))
+        axios.delete(`${API_BASE_URI}posts/${id}`)
+            .then((res) => {
+                fetchPosts()
+            })
+            .catch((err) => {
+                console.error(err)
+            })
     }
 
     return (
