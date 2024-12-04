@@ -1,6 +1,7 @@
 import style from "./Main.module.css"
-import { useState } from "react"
-import initialPosts from "../../data/posts.js"
+import { useState, useEffect } from "react"
+import axios from "axios"
+// import initialPosts from "../../data/posts.js"
 import Form from "../../components/Form/Form.jsx"
 import Card from "../../components/Card/Card.jsx"
 import Tags from "../../components/Tags/Tags.jsx"
@@ -14,6 +15,9 @@ const initialFormData = {
     category: "",
     published: false
 }
+
+export const API_BASE_URI = "http://localhost:3000"
+
 /*
 immagine prova copia e incolla: 
 https://static.vecteezy.com/system/resources/thumbnails/030/362/244/small/a-small-animal-is-sitting-on-a-branch-ai-generated-free-photo.jpg
@@ -22,21 +26,37 @@ https://static.vecteezy.com/system/resources/thumbnails/030/362/244/small/a-smal
 function Main() {
 
     //Creo lo stato dei post partendo dai dati iniziali (posts.js)
-    const [posts, setPosts] = useState(initialPosts)
+    const [posts, setPosts] = useState([])
+
+
+    function fetchPosts() {
+        axios.get(`${API_BASE_URI}/posts`)
+            .then((res) => {
+                console.log(res.data)
+                setPosts(res.data)
+            })
+            .catch((err) => {
+                console.error(err.message)
+            })
+    }
+
+    useEffect(() => {
+        fetchPosts()
+    }, [])
 
 
     //TAGS
     //Tags senza ripetizioni
-    const filteredTags = []
-    initialPosts.forEach(post => {
-        const postTags = post.tags
+    // const filteredTags = []
+    // initialPosts.forEach(post => {
+    //     const postTags = post.tags
 
-        postTags.forEach(tag => {
-            if (!filteredTags.includes(tag)) {
-                filteredTags.push(tag)
-            }
-        })
-    })
+    //     postTags.forEach(tag => {
+    //         if (!filteredTags.includes(tag)) {
+    //             filteredTags.push(tag)
+    //         }
+    //     })
+    // })
 
 
     //FORM
@@ -84,7 +104,7 @@ function Main() {
         <main>
             <section className={style.tags}>
                 <div className="container">
-                    <Tags tags={filteredTags} />
+                    {/* <Tags tags={filteredTags} /> */}
                 </div>
             </section>
             <section className={style.form}>
