@@ -16,7 +16,7 @@ const initialFormData = {
     published: false
 }
 
-export const API_BASE_URI = "http://localhost:3000"
+export const API_BASE_URI = "http://localhost:3000/"
 
 /*
 immagine prova copia e incolla: 
@@ -30,7 +30,7 @@ function Main() {
 
 
     function fetchPosts() {
-        axios.get(`${API_BASE_URI}/posts`)
+        axios.get(`${API_BASE_URI}posts`)
             .then((res) => {
                 console.log(res.data)
                 setPosts(res.data)
