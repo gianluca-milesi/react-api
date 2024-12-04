@@ -28,7 +28,7 @@ function Main() {
     //Creo lo stato dei post partendo dai dati iniziali (posts.js)
     const [posts, setPosts] = useState([])
 
-
+    //FETCH dei posts per mostrarli in pagina
     function fetchPosts() {
         axios.get(`${API_BASE_URI}posts`)
             .then((res) => {
@@ -47,16 +47,16 @@ function Main() {
 
     //TAGS
     //Tags senza ripetizioni
-    // const filteredTags = []
-    // initialPosts.forEach(post => {
-    //     const postTags = post.tags
+    const filteredTags = []
+    posts.forEach(post => {
+        const postTags = post.tags
 
-    //     postTags.forEach(tag => {
-    //         if (!filteredTags.includes(tag)) {
-    //             filteredTags.push(tag)
-    //         }
-    //     })
-    // })
+        postTags.forEach(tag => {
+            if (!filteredTags.includes(tag)) {
+                filteredTags.push(tag)
+            }
+        })
+    })
 
 
     //FORM
@@ -89,8 +89,17 @@ function Main() {
             ...formData,
             tags: formData.tags.split(",").map(tag => tag.trim())
         }
-        setPosts([...posts, newPost])
-        setFormData(initialFormData) //resetto i campi del form
+
+        //gestisco il metodo post con axios per creare un nuovo array di posts
+        axios.post(`${API_BASE_URI}posts`, newPost)
+            .then((res) => {
+                setPosts([...posts, res.data])
+                setFormData(initialFormData) //resetto i campi del form
+                console.log(posts)
+                console.log(res.data)
+            }).catch((err) => {
+                console.error(err)
+            })
     }
 
 
@@ -104,7 +113,7 @@ function Main() {
         <main>
             <section className={style.tags}>
                 <div className="container">
-                    {/* <Tags tags={filteredTags} /> */}
+                    <Tags tags={filteredTags} />
                 </div>
             </section>
             <section className={style.form}>

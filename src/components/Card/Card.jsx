@@ -15,7 +15,7 @@ function Card({ item = {}, deleteItem = () => { } }) { //post (filtrati)
             <div className={style.card_body}>
                 <h2>{title}</h2>
                 <Tags tags={tags} />
-                <p>{category}</p>
+                <p className={style.category}>Difficoltà: {category}</p>
                 <p>{content}</p>
                 <div className={style.buttons}>
                     <button className={style.button}>Leggi di più</button>

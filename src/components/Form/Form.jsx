@@ -26,8 +26,8 @@ function Form({ formData, handleFormData, submit }) {
                     <label htmlFor="category">Categoria</label>
                     <select name="category" className={style.input_item_select} onChange={handleFormData} value={formData.category}>
                         <option value="">Seleziona una categoria</option>
-                        <option value="grande">Grande</option>
-                        <option value="piccolo">Piccolo</option>
+                        <option value="facile">Facile</option>
+                        <option value="difficile">Difficile</option>
                     </select>
                 </div>
                 <div className={style.form_published_field}>
